@@ -1,0 +1,1 @@
+db.trips.aggregate([{ $group: { _id: "$usertype", total: { $avg: { $subtract: [{ $hour: "$stopTime" }, { $hour: "$startTime" }] } } } }, { $project: { _id: 0, tipo: "$_id", duracaoMedia: { $round: ["$total", 2] } } }]);
