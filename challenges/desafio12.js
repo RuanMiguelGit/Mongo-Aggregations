@@ -1,1 +1,1 @@
-db.trips.aggregate([{ $group: { _id: { diaDaSemana: { $dayOfWeek: "$startTime" }, estacao: "$startStationName" }, total: { $sum: 1 } } }, { $sort: { total: -1 } }, { $limit: 1 }, { $project: { _id: 0, nomaEstacao: "$_id.estacao", total: "$total" } }]);
+db.trips.aggregate([{ $group: { _id: { diaDaSemana: { $dayOfWeek: "$startTime" }, estacao: "$startStationName" }, total: { $sum: 1 } } }, { $sort: { total: -1 } }, { $limit: 1 }, { $project: { _id: 0, nomeEstacao: "$_id.estacao", total: "$total" } }]);
