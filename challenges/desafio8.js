@@ -1,1 +1,1 @@
-db.air_routes.aggregate([{ $match: { airplane: { $in: ["747", "380"] } } }, { $lookup: { from: "air_alliances", localField: "airline.name", foreignField: "airlines", as: "td" } }, { $unwind: "$td" }, { $group: { _id: "$td.name", totalRotas: { $sum: 1 } } }]);
+db.air_routes.aggregate([{ $match: { airplane: { $in: ["747", "380"] } } }, { $lookup: { from: "air_alliances", localField: "airline.name", foreignField: "airlines", as: "td" } }, { $unwind: "$td" }, { $group: { _id: "$td.name", totalRotas: { $sum: 1 } } }, { $sort: { totalRotas: -1 } }, { $limit: 1 }]);
