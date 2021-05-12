@@ -1,0 +1,1 @@
+db.trips.aggregate([{ $match: { startTime: { $gt: new Date("2016-03-10T00:00:00Z"), $lt: new Date("2016-03-10T23:59:59Z") } } }, { $group: { _id: null, duracaoEmMinutos: { $avg: { $divide: [{ $subtract: ["$stopTime", "$startTime"] }, 60000] } } } }, { $project: { _id: 0, duracaoMediaEmMinutos: { $ceil: "$duracaoEmMinutos" } } }]);
