@@ -19,7 +19,7 @@ Usar os operadores de aggregation para fazer uma pipeline
   <li> Git Clone no Projeto</li>
   <li> Npm Install</li>
   <li> Inicie o MongoDB</li>
-  <li> Npm start</li>
+  <li> Execute os arquivos</li>
  </ul>
 
 <h2>Membros do Projeto</h2>
